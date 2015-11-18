@@ -1,6 +1,7 @@
 # Play-Weather
 
-![ScreenShot](https://raw.github.com/kiok46/swipetodelete/master/screenshot.png)
+![ScreenShot](https://github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png)
+
 
 ##Usage Summary
 
