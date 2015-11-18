@@ -1,8 +1,5 @@
 # Play-Weather
 
-![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png)
-
-
 ##Usage Summary
 
 This project was designed built in python and kivy and uses openweathermap api for weather reports.
@@ -43,3 +40,6 @@ Latest commit adds some new features.
 
 ##Want to contribute or need to see some improvements?
 I would love that, please create an issue or send a PR.
+
+![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png)
+![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-48-04.png)
