@@ -1,6 +1,6 @@
 # Play-Weather
 
-![ScreenShot](https://github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png)
+![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png)
 
 
 ##Usage Summary
