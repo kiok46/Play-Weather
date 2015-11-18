@@ -1,0 +1,95 @@
+<PongPaddle>:
+	size: 25,150
+	canvas:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+<PongBall>:
+	size: 50,50
+	canvas:
+		Ellipse:
+			pos: self.pos
+			size: self.size
+
+<Won1>:
+	orientation: 'vertical'
+	
+	Label:
+		text: "Player 1 wins"
+	Button:
+		size_hint: 1,.3
+		text:"Yea Whatever!"
+		on_release: root.parent.parent.parent.dismiss()
+
+<Won2>:
+	orientation: 'vertical'
+	
+	Label:
+		text: "Player 2 wins"
+	Button:
+		size_hint: 1,.3
+		text:"Yea Whatever!"
+		on_release: root.parent.parent.parent.dismiss()
+
+<PongGame>:
+	ball: pong_ball
+	player1: player_left
+	player2: player_right
+
+	Label:
+		font_size: 70
+		center_x: root.width/4
+		top: root.top - 50
+		text: str(root.player1.score)
+				
+	Label:
+		font_size: 70
+		center_x: root.width*3/4
+		top: root.top - 50
+		text: str(root.player2.score)
+			
+	PongBall:
+		id: pong_ball
+		center: self.parent.center
+			
+	PongPaddle:
+		id: player_left
+		x: root.x
+		center_y: root.center_y
+			
+	PongPaddle:
+		id: player_right
+		x: root.width - self.width
+		center_y: root.center_y
+		
+<Game>:
+	orientation: 'vertical'
+	BoxLayout:
+		size_hint: 1,.2
+		Button:
+			text:"Pause Game"
+			on_release: ponggame.on_pause()
+			background_color: 1,1,1,.2
+		Button:
+			text:"Resume"
+			on_release: ponggame.on_resume()
+			background_color: 1,1,1,.2
+		Button:
+			text:"play/Restart"
+			on_release: ponggame.on_restart()
+			background_color: 1,1,1,.2
+	
+	PongGame:
+		id: ponggame
+		
+	BoxLayout:
+		size_hint: 1,.2
+		Button:
+			text:"Make Fast"
+			on_release: ponggame.on_fast()
+			background_color: 1,1,1,.2
+		Button:
+			text: "Perfect Opponent"
+			on_release: ponggame.on_opponent()
+			background_color: 1,1,1,.2

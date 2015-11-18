@@ -1,0 +1,87 @@
+<WholeWeek>:
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			Label:
+				text: str(root.day1)
+			BoxLayout:
+				orientation: 'vertical'
+				AsyncImage:
+					id: conditions_image1
+					source: root.conditions_image1
+				Label:
+					id: conditions1
+					text: root.conditions1
+				Label:
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					id: temp_min1
+					text: "Low: {} {}".format(root.temp_min1, root.temp_str)
+				Label:
+					id: temp_max1
+					text: "High: {} {}".format(root.temp_max1, root.temp_str)
+				Label:
+		BoxLayout:
+			Label:
+				text: str(root.day2)
+			BoxLayout:
+				orientation: 'vertical'
+				AsyncImage:
+					id: conditions_image2
+					source: root.conditions_image2
+				Label:
+					id: conditions2
+					text: root.conditions2
+				Label:
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					id: temp_min2
+					text: "Low: {} {}".format(root.temp_min2, root.temp_str)
+				Label:
+					id: temp_max2
+					text: "High: {} {}".format(root.temp_max2, root.temp_str)
+				Label:
+		BoxLayout:
+			Label:
+				text: str(root.day3)
+			BoxLayout:
+				orientation: 'vertical'
+				AsyncImage:
+					id: conditions_image3
+					source: root.conditions_image3
+				Label:
+					id: conditions3
+					text: root.conditions3
+				Label:
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					id: temp_min3
+					text: "Low: {} {}".format(root.temp_min3, root.temp_str)
+				Label:
+					id: temp_max3
+					text: "High: {} {}".format(root.temp_max3, root.temp_str)
+				Label:
+		BoxLayout:
+			Label:
+				text: str(root.day4)
+			BoxLayout:
+				orientation: 'vertical'
+				AsyncImage:
+					id: conditions_image4
+					source: root.conditions_image4
+				Label:
+					id: conditions4
+					text: root.conditions4
+				Label:
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					id: temp_min4
+					text: "Low: {} {}".format(root.temp_min4, root.temp_str)
+				Label:
+					id: temp_max4
+					text: "High: {} {}".format(root.temp_max4, root.temp_str)
+				Label:

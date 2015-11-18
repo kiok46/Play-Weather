@@ -1,0 +1,95 @@
+<Months>:
+	btn_jan: btn_jan
+	btn_feb: btn_feb
+	btn_mar: btn_mar
+	btn_april: btn_april
+	btn_may: btn_may
+	btn_june: btn_june
+	btn_july: btn_july
+	btn_aug: btn_aug
+	btn_sept: btn_sept
+	btn_oct: btn_oct
+	btn_nov: btn_nov
+	btn_dec: btn_dec
+	
+	orientation: 'vertical'
+	size_hint: .2,1
+	ToggleButton:
+		id:btn_jan
+		name:btn_jan
+		text:"Jan"
+		group: "months"
+		state: "down"
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_feb
+		name: btn_feb
+		text:"Feb"
+		group: "months"
+		state: 'normal'
+		#on_release: btn_feb.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_mar
+		name: btn_mar
+		text:"Mar"
+		group: "months"
+		#on_release: btn_mar.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_april
+		name: btn_april
+		text:"April"
+		group: "months"
+		#on_release: btn_april.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_may
+		text:"May"
+		group: "months"
+		#on_release: btn_may.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_june
+		text:"June"
+		group: "months"
+		#on_release: btn_june.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_july
+		text:"July"
+		group: "months"
+		
+		#on_release: btn_july.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_aug
+		text:"Aug"
+		group: "months"
+		#on_release: btn_aug.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_sept
+		text:"Sept"
+		group: "months"
+		#on_release: btn_sept.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_oct
+		text:"Oct"
+		group: "months"
+		#on_release: btn_oct.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_nov
+		text:"Nov"
+		group: "months"
+		#on_release: btn_nov.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+	ToggleButton:
+		id: btn_dec
+		text: "Dec"
+		group: "months"
+		#on_release: btn_dec.background_color = 1,0,0,1
+		on_release: root.on_release(self)
+		

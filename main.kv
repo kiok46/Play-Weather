@@ -1,0 +1,266 @@
+#: import NavigationDrawer kivy.garden.navigationdrawer.NavigationDrawer
+
+<Button_type@Button>:
+	background_color: .51,.9,.3,1
+
+<HelpDialog>:
+	title: "About"
+	size_hint: 0.9, 0.9
+	auto_dismiss: False
+	BoxLayout:
+		orientation: 'vertical'
+		RstDocument:
+			text: root.rst
+		Button:
+			size_hint: 1,.15
+			text: "Close"
+			on_release: root.dismiss()
+		
+<User>:
+	navigate: navigate
+	NavigationDrawer:
+		id: navigate
+		anim_type: 'slide_above_anim'
+		Accordion:
+			orientation: 'vertical'
+			AccordionItem:
+				title: 'Areas'
+				BoxLayout:
+					orientation: 'vertical'
+					padding: 20
+					spacing: 20
+					Button:
+						text: "Weather Area"
+						on_release: together.ids.manager.current = "main_app"
+						canvas.before:
+							Color: 
+								rgba: 0,.694,.415,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						text: "Ping Pong Area"
+						on_release: together.ids.manager.current = "game"
+						canvas.before:
+							Color: 
+								rgba: 0,.694,.415,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						text: "Calendar Area"
+						on_release: together.ids.manager.current = "calendar"
+						canvas.before:
+							Color: 
+								rgba: 0,.694,.415,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						text: "Settings Area"
+						on_release: app.open_settings()
+						canvas.before:
+							Color: 
+								rgba: 0,.694,.415,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						text: "Developer"
+						on_release: together.ids.manager.current = "about"
+						canvas.before:
+							Color: 
+								rgba: 0,.694,.415,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+			AccordionItem:
+				title: 'Select Theme'
+				GridLayout:
+					padding: 10
+					spacing: 10
+					rows: 3
+					Button:
+						on_release: root.callback1(self)
+						
+						canvas.before:
+							Color: 
+								rgba: .266,.423,.701,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback2(self)
+						canvas.before:
+							Color: 
+								rgba: .839,.270,.254,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback3(self)
+						canvas.before:
+							Color: 
+								rgba: .749,.333,.925,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback4(self)
+						canvas.before:
+							Color: 
+								rgba: .2,.431,.482,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback5(self)
+						canvas.before:
+							Color: 
+								rgba: .149,.560,.356,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback6(self)
+						canvas.before:
+							Color: 
+								rgba: .949,.470,.294,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback7(self)
+						canvas.before:
+							Color: 
+								rgba: .423,.478,.537,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback8(self)
+						canvas.before:
+							Color: 
+								rgba: .323,.7,.2,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+					Button:
+						on_release: root.callback9(self)
+						canvas.before:
+							Color: 
+								rgba: .323,.1,.32,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+		
+		Together:
+			id: together
+
+
+<Together>:
+	status_labeel: status_label
+	on_W: manager.current = 'main_app'
+	on_S: app.open_settings()
+	on_C: manager.current = 'calendar'
+	on_P: manager.current = 'game'
+	on_Refresh: statusbar.connect()
+	orientation: 'vertical'
+			
+			
+	canvas.before:
+		Color:
+			rgba: root.theme0,root.theme1,root.theme2,root.theme3
+		Rectangle:
+			size: self.size
+			pos: self.pos
+	
+	StatusBar:
+		id: statusbar
+		size_hint: 1,.15
+	ScreenManager:
+		id: manager
+				
+		Screen:
+			name: 'main_app'
+			
+			Carousel:
+				min_move: .1
+				id: carousel
+				loop: True
+				
+				Current:
+					id: current
+				
+				WholeWeek:
+					id: wholeweek
+			
+				Locations:
+					id: locations
+	
+			BoxLayout:
+				size_hint:1,.05
+				id: below
+				Label:
+					
+				BoxLayout:
+					Button:
+						id: page_1
+						size: 10,10
+						text: "1"
+						background_color: 1,1,1,0
+						disabled: False if (carousel._index == 2) else True
+					Button:
+						id: page_2
+						size_hint: 1,1
+						text: "2"
+						background_color: 1,1,1,0
+						disabled: False if (carousel._index == 0) else True
+					Button:
+						id: page_3
+						size_hint: 1,1
+						text: "3"
+						background_color: 1,1,1,0
+						disabled: False if (carousel._index == 1) else True
+				Label:
+					id: status_label
+					text: "updating..."
+		
+		Screen:
+			name: "about"
+			BoxLayout:
+				orientation:'vertical'
+				Image:
+					source: "./icons/about.png"
+				Label:
+					size_hint: 1,.4
+					text: "version: 1.0.1"
+				Label:
+					size_hint: 1,.4
+					text: "This application was build by Kuldeep Singh"
+		
+		
+		Screen:
+			name: "game"
+			Game:
+		
+		
+		Screen:
+			name: "calendar"
+			Calendar_Part:
+				id: calendar
+		
+	MenuSpawner:
+		size_hint:.001,.001
+		timeout: .1
+		menu_args:
+			dict(
+			creation_direction=-1,
+			radius=30,
+			creation_timeout=.4,
+			choices=[
+			dict(text='Theme A', index=1, callback=app.callback1),
+			dict(text='Theme B', index=2, callback=app.callback4),
+			dict(text='About', index=3, callback=app.callbackabout),
+			dict(text='Settings', index=4, callback=app.callback5),
+			])

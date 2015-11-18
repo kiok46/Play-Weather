@@ -1,0 +1,20 @@
+<Button>:
+	background_color: 1,1,1,.4
+	
+<Calendar_Part>:
+	orientation:'vertical'
+	BoxLayout:
+		size_hint:1,.1
+		Select:
+			id: select
+		
+	BoxLayout:
+		Months:
+			id: months
+		BoxLayout:
+			orientation: 'vertical'
+			Days:
+				id: days
+			Dates:
+				id: dates
+	

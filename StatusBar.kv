@@ -1,0 +1,46 @@
+#: import RippleTransition kivy.garden.moretransitions.RippleTransition
+#: import PixelTransition kivy.garden.moretransitions.PixelTransition
+#: import BlurTransition kivy.garden.moretransitions.BlurTransition
+#: import RVBTransition kivy.garden.moretransitions.RVBTransition
+
+<StatusBar>:
+	ActionBar:
+		background_color: 1,1,1,0
+		pos_hint: {'top':1}
+		ActionView:
+			use_separator:True
+			ActionPrevious:
+				title: 'Play Weather'
+				app_icon: "./icons/menu_icon.png"
+				with_previous: False
+				#on_release: root.parent.ids.manager.current = "main_app"
+				on_release: root.parent.parent.parent.toggle_state()
+			ActionOverflow:
+				ActionButton:
+					text: "About"
+					on_release: root.parent.ids.manager.current = "about"
+					#on_release: root.parent.ids.manager.transition = RippleTransition(duration = 2.0)
+				ActionButton:
+					text: "Home"
+					on_release: root.parent.ids.manager.current = "main_app"
+				ActionButton:
+					text: "Settings"
+					on_press: app.open_settings()
+			ActionButton:
+				text: "Ping Pong"
+				on_release: root.parent.ids.manager.current = "game"
+			ActionButton:
+				text: "Calendar"
+				on_release: root.parent.ids.manager.current = "calendar"
+			ActionButton:
+				text: "Refresh"
+				icon: "./icons/refresh.png"
+				important: True
+				on_release: root.connect()
+				#on_release: root.parent.ids.carousel.load_slide(root.parent.ids.carousel.slides[2])
+			ActionButton:
+				text: "Help"
+				icon: "./icons/FAQ.png"
+				important: True
+				on_release: root.show_help()
+				#on_release: root.parent.ids.carousel.load_slide(root.parent.ids.carousel.slides[2])

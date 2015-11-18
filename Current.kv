@@ -1,0 +1,30 @@
+<Current>:
+	orientation: "vertical"
+	BoxLayout:
+		orientation: 'vertical'
+		Label:
+			id: location
+			text: str(root.location)
+			font_size: "30dp"
+		Label:
+			id: temperature
+			size: self.size
+			text: "{} {}".format(root.temp, root.temp_str)
+			font_size: "30dp"
+	BoxLayout:
+		orientation: 'vertical'
+		AsyncImage:
+			id: conditions_image
+			source: root.conditions_image
+		Label:
+			id: conditions
+			text: root.conditions
+		
+	BoxLayout:
+		Label:
+			id: temp_min
+			text: "Low: {} {}".format(root.temp_min, root.temp_str)
+		Label:
+			id: temp_max
+			text: "High: {} {}".format(root.temp_max, root.temp_str)
+	

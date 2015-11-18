@@ -1,0 +1,189 @@
+{
+    "city": {
+        "country": "IN", 
+        "population": 0, 
+        "id": 1273840, 
+        "coord": {
+            "lat": 28.633333, 
+            "lon": 77.216667
+        }, 
+        "name": "Connaught Place"
+    }, 
+    "message": 0.0253, 
+    "list": [
+        {
+            "clouds": 64, 
+            "temp": {
+                "min": 25.32, 
+                "max": 36.11, 
+                "eve": 33.79, 
+                "morn": 35, 
+                "night": 25.32, 
+                "day": 35
+            }, 
+            "rain": 5.21, 
+            "humidity": 97, 
+            "pressure": 995.83, 
+            "weather": [
+                {
+                    "main": "Rain", 
+                    "id": 501, 
+                    "icon": "10d", 
+                    "description": "moderate rain"
+                }
+            ], 
+            "dt": 1442642400, 
+            "speed": 4.53, 
+            "deg": 36
+        }, 
+        {
+            "clouds": 80, 
+            "temp": {
+                "min": 22.74, 
+                "max": 28, 
+                "eve": 28, 
+                "morn": 22.74, 
+                "night": 24.48, 
+                "day": 27.38
+            }, 
+            "rain": 8.09, 
+            "humidity": 96, 
+            "pressure": 993.18, 
+            "weather": [
+                {
+                    "main": "Rain", 
+                    "id": 501, 
+                    "icon": "10d", 
+                    "description": "moderate rain"
+                }
+            ], 
+            "dt": 1442728800, 
+            "speed": 2.48, 
+            "deg": 124
+        }, 
+        {
+            "clouds": 92, 
+            "temp": {
+                "min": 22.77, 
+                "max": 27.16, 
+                "eve": 27.16, 
+                "morn": 22.77, 
+                "night": 25.63, 
+                "day": 25.06
+            }, 
+            "rain": 15.98, 
+            "humidity": 99, 
+            "pressure": 992.38, 
+            "weather": [
+                {
+                    "main": "Rain", 
+                    "id": 502, 
+                    "icon": "10d", 
+                    "description": "heavy intensity rain"
+                }
+            ], 
+            "dt": 1442815200, 
+            "speed": 4.56, 
+            "deg": 93
+        }, 
+        {
+            "clouds": 12, 
+            "temp": {
+                "min": 24.33, 
+                "max": 29.51, 
+                "eve": 29.51, 
+                "morn": 24.8, 
+                "night": 24.33, 
+                "day": 29.05
+            }, 
+            "rain": 2.46, 
+            "humidity": 0, 
+            "pressure": 993.75, 
+            "weather": [
+                {
+                    "main": "Rain", 
+                    "id": 500, 
+                    "icon": "10d", 
+                    "description": "light rain"
+                }
+            ], 
+            "dt": 1442901600, 
+            "speed": 3.1, 
+            "deg": 168
+        }, 
+        {
+            "clouds": 0, 
+            "temp": {
+                "min": 22.82, 
+                "max": 29.35, 
+                "eve": 29.06, 
+                "morn": 22.82, 
+                "night": 22.88, 
+                "day": 29.35
+            }, 
+            "humidity": 0, 
+            "pressure": 995.02, 
+            "weather": [
+                {
+                    "main": "Rain", 
+                    "id": 500, 
+                    "icon": "10d", 
+                    "description": "light rain"
+                }
+            ], 
+            "dt": 1442988000, 
+            "speed": 5.34, 
+            "deg": 307
+        }, 
+        {
+            "clouds": 0, 
+            "temp": {
+                "min": 20.39, 
+                "max": 28.62, 
+                "eve": 28.38, 
+                "morn": 20.39, 
+                "night": 22.78, 
+                "day": 28.62
+            }, 
+            "humidity": 0, 
+            "pressure": 992.63, 
+            "weather": [
+                {
+                    "main": "Clear", 
+                    "id": 800, 
+                    "icon": "01d", 
+                    "description": "sky is clear"
+                }
+            ], 
+            "dt": 1443074400, 
+            "speed": 6.37, 
+            "deg": 297
+        }, 
+        {
+            "clouds": 0, 
+            "temp": {
+                "min": 19.09, 
+                "max": 30.29, 
+                "eve": 29.49, 
+                "morn": 19.09, 
+                "night": 19.35, 
+                "day": 30.29
+            }, 
+            "humidity": 0, 
+            "pressure": 991.37, 
+            "weather": [
+                {
+                    "main": "Clear", 
+                    "id": 800, 
+                    "icon": "01d", 
+                    "description": "sky is clear"
+                }
+            ], 
+            "dt": 1443160800, 
+            "speed": 4.36, 
+            "deg": 294
+        }
+    ], 
+    "cod": "200", 
+    "cnt": 7
+}
