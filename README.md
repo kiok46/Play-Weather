@@ -20,14 +20,18 @@ Draw these Symbols/characters.
 - 'W' move to Weather area.
 - 'P' move to game area.
 - '|' draw a line from top to bottom to refresh the application and get updated forecast.
+
 **MordenMenu**
 Give a long press on the screen to open up a wheel shaped menu with multiple options and navigate where ever you want.
 You can also change the Theme of the application using this Menubar. 
 Click on center of the menu to go back.
+
 **Navigation Bar**
 Use Navigation bar to change theme or to navigate to different areas.
+
 **Calendar**
 Calendar which consists year from 0000 to 9999 and simple to use UI.
+
 **Game**
 There is a small Ping Pong game just for fun.
 
