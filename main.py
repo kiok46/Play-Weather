@@ -25,7 +25,6 @@ from urllib import urlopen
 from kivy.animation import Animation
 import datetime
 from os.path import exists
-from plyer import orientation
 from kivy.graphics import Color, Ellipse, Line
 from random import random
 
@@ -33,28 +32,27 @@ from kivy.utils import platform
 from kivy.config import Config
 
 #Loading files
-Builder.load_file('StatusBar.kv')
-Builder.load_file('Locations.kv')
-Builder.load_file('Current.kv')
-Builder.load_file('WholeWeek.kv')
+Builder.load_file('./kv/StatusBar.kv')
+Builder.load_file('./kv/Locations.kv')
+Builder.load_file('./kv/Current.kv')
+Builder.load_file('./kv/WholeWeek.kv')
 
-Builder.load_file('calendar_part.kv')
-Builder.load_file('months.kv')
-Builder.load_file('dates.kv')
-Builder.load_file('select.kv')
-Builder.load_file('days.kv')
+Builder.load_file('./kv/calendar_part.kv')
+Builder.load_file('./kv/months.kv')
+Builder.load_file('./kv/dates.kv')
+Builder.load_file('./kv/select.kv')
+Builder.load_file('./kv/days.kv')
 
-Builder.load_file('pingpong.kv')
+Builder.load_file('./kv/pingpong.kv')
 
 
-
-if platform == 'linux':
-    print "its linux"
+if platform in ('android', 'ios') :
+    from plyer import orientation
 
 #global variable
 try:
     variable_for_ping_pong_gesture = 0
-    name_file = open("global_name.json","r")
+    name_file = open("./json/global_name.json","r")
     getname = json.load(name_file)
 except:
     getname = 'Jaipur(IN)'
@@ -134,7 +132,7 @@ class StatusBar(BoxLayout):
             url = urlopen('http://api.openweathermap.org/data/2.5/forecast/daily?q={}&mode=json&units={}'.format(getname,temp_type)).read()
             result = json.loads(url)
             print "starting"
-            self.out_file = open("weather.json","w")
+            self.out_file = open("./json/weather.json","w")
             json.dump(result,self.out_file, indent=4)
             self.out_file.close()
             self.parent.ids.current.ids.location.text = str(result['city']['name'] +'('+ result['city']['country']+')')
@@ -171,7 +169,7 @@ class StatusBar(BoxLayout):
             
             print "made it"
             try:
-                self.out_file = open("global_name.json","w")
+                self.out_file = open("./json/global_name.json","w")
                 self.city_name = self.parent.ids.current.ids.location.text
                 json.dump(self.city_name,self.out_file, indent=4)
                 self.out_file.close()
@@ -181,7 +179,7 @@ class StatusBar(BoxLayout):
         except:
             traceback.print_exc()
             
-            self.in_file = open("weather.json","r")
+            self.in_file = open("./json/weather.json","r")
             result = json.load(self.in_file)
             
             self.parent.ids.current.ids.location.text = str(result['city']['name'] +'('+ result['city']['country']+')')
@@ -288,7 +286,7 @@ class Locations(BoxLayout):
             self.parent.parent.parent.parent.parent.ids.wholeweek.ids.conditions_image3 = "http://openweathermap.org/img/w/{}.png".format(result['list'][3]['weather'][0]['icon'])
             self.parent.parent.parent.parent.parent.ids.wholeweek.ids.conditions_image4 = "http://openweathermap.org/img/w/{}.png".format(result['list'][4]['weather'][0]['icon'])
             
-            self.out_file = open("weather.json","w")
+            self.out_file = open("./json/weather.json","w")
             json.dump(result,self.out_file, indent=4)
             self.out_file.close()
             print "made it"
@@ -360,7 +358,7 @@ class Current(BoxLayout):
         super(Current,self).__init__(**kwargs)
         threading.Thread(target=self.second_thread).start()
         try:
-            self.in_file = open("weather.json","r")
+            self.in_file = open("./json/weather.json","r")
             result = json.load(self.in_file)
             
             self.conditions = result['list'][0]['weather'][0]['description']
@@ -457,7 +455,7 @@ class WholeWeek(BoxLayout):
         super(WholeWeek,self).__init__(**kwargs)
         threading.Thread(target=self.third_thread).start()
         try:
-            self.in_file = open("weather.json","r")
+            self.in_file = open("./json/weather.json","r")
             result = json.load(self.in_file)
             
             self.conditions1 = result['list'][1]['weather'][0]['description']
@@ -500,7 +498,7 @@ class WholeWeek(BoxLayout):
             global getname
             url = urlopen('http://api.openweathermap.org/data/2.5/forecast/daily?q={}&mode=json&units={}'.format(getname,temp_type)).read()
             result = json.loads(url) 
-            self.out_file = open("weather.json","w")
+            self.out_file = open("./json/weather.json","w")
             json.dump(result,self.out_file, indent=4)
             self.out_file.close()
             print "came here"
@@ -581,7 +579,7 @@ class Together(gesture.GestureBox):
     theme3 = NumericProperty('')
     def __init__(self,**kwargs):
         super(Together,self).__init__(**kwargs)
-        in_file = open("theme.json","r")
+        in_file = open("./json/theme.json","r")
         self.theme =json.load(in_file)['theme']
         self.theme0 = float(self.theme.split(',')[0])
         self.theme1 = float(self.theme.split(',')[1])
@@ -613,7 +611,7 @@ class Together(gesture.GestureBox):
 class User(BoxLayout):
 
     def callback1(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.266,.423,.701,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -623,7 +621,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback2(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.839,.270,.254,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -633,7 +631,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback3(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.749,.333,.925,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -643,7 +641,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback4(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.2,.431,.482,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -653,7 +651,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback5(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.149,.560,.356,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -663,7 +661,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback6(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.949,.470,.294,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -673,7 +671,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback7(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.423,.478,.537,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -683,7 +681,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback8(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.323,.7,.2,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -693,7 +691,7 @@ class User(BoxLayout):
                       size=(max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500,max(args[0].parent.parent.parent.parent.parent.parent.parent.parent.parent.ids.together.size)+500))
     
     def callback9(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.323,.1,.32,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -826,7 +824,7 @@ class MainApp(App):
     
     def callback2(self, *args):
         print args[0]
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.266,.423,.701,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -839,7 +837,7 @@ class MainApp(App):
         args[0].parent.dismiss()
         
     def callback3(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.839,.270,.254,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -848,7 +846,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+200,max(args[0].parent.parent.parent.size)+200))
 
     def callback7(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.749,.333,.925,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -857,7 +855,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+200,max(args[0].parent.parent.parent.size)+200))
 
     def callback8(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.2,.431,.482,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -866,7 +864,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+200,max(args[0].parent.parent.parent.size)+200))
 
     def callback9(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.149,.560,.356,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -875,7 +873,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+200,max(args[0].parent.parent.parent.size)+200))
 
     def callback10(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.949,.470,.294,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -884,7 +882,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+200,max(args[0].parent.parent.parent.size)+200))
 
     def callback11(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.423,.478,.537,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -893,7 +891,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+200,max(args[0].parent.parent.parent.size)+200))
 
     def callback12(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.323,.7,.2,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -902,7 +900,7 @@ class MainApp(App):
             Rectangle(pos=args[0].parent.parent.parent.pos, size=(max(args[0].parent.parent.parent.size)+500,max(args[0].parent.parent.parent.size)+500))
 
     def callback13(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.323,.1,.32,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()
@@ -916,7 +914,7 @@ class MainApp(App):
         args[0].parent.dismiss()
         
     def callback6(self, *args):
-        out_file = open("theme.json","w")
+        out_file = open("./json/theme.json","w")
         theme = {'theme': '.323,.2,.7,1'}
         json.dump(theme,out_file, indent=4) 
         out_file.close()

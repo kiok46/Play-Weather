@@ -1,8 +1,9 @@
 from kivy.gesture import GestureDatabase
 from kivy.uix.boxlayout import BoxLayout
 from kivy.gesture import Gesture
-from plyer import orientation
 from kivy.app import platform
+if platform in ('android', 'ios') :
+    from plyer import orientation
 from kivy.graphics import Color, Ellipse, Line
 from random import random
 

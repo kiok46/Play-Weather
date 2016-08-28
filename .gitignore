@@ -1,0 +1,17 @@
+*.pyc
+*.pyo
+.*.swp
+.*.swo
+build
+docs/build/
+dist
+*.egg-info
+venv
+
+*.komodoproject
+.komodotools
+
+# PyDev
+.project
+.pydevproject
+.settings/
