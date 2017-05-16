@@ -6,6 +6,8 @@ You are free to use it redistribute it or sell it. If it helps you in some way t
 ![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png) 
 ![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-48-04.png)
 
+------------
+
 ### Uses and Features
 
 Swipe left or right to view weather forecast. Search for new places, tap on them to view forecast for that region.
@@ -13,7 +15,7 @@ Use Navigation bar to change theme or to change areas.
 Play Game or use calendar and navigate using gestures. Change theme. This application will remember all your choices like your theme and last search.
 Features
 
-**Gesture Recognition**
+**Gesture Recognition:**
 Draw these Symbols/characters. 
 - 'S' move to Settings area.
 - 'C' move to Calendar area.
@@ -21,19 +23,21 @@ Draw these Symbols/characters.
 - 'P' move to game area.
 - '|' draw a line from top to bottom to refresh the application and get updated forecast.
 
-**MordenMenu**
+**MordenMenu:**
 Give a long press on the screen to open up a wheel shaped menu with multiple options and navigate where ever you want.
 You can also change the Theme of the application using this Menubar. 
 Click on center of the menu to go back.
 
-**Navigation Bar**
+**Navigation Bar:**
 Use Navigation bar to change theme or to navigate to different areas.
 
-**Calendar**
+**Calendar:**
 Calendar which consists year from 0000 to 9999 and simple to use UI.
 
-**Game**
+**Game:**
 There is a small Ping Pong game just for fun.
+
+--------------
 
 ### Developer
 Kuldeep Singh, LNMIIT Jaipur, India
