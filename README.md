@@ -1,18 +1,18 @@
 # Play-Weather
 
-##Usage Summary
+This project was built in python and kivy and uses openweathermap api for weather reports, I made it when I was learning Kivy.
+You are free to use it redistribute it or sell it. If it helps you in some way then do shoot me an email or star this repo. and that would make my day. 
 
-This project was designed built in python and kivy and uses openweathermap api for weather reports.
-Screen shots are added for reference.
+![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png) 
+![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-48-04.png)
 
-Welcome
-----------------------------
-**How to use this application?**
+### Uses and Features
+
 Swipe left or right to view weather forecast. Search for new places, tap on them to view forecast for that region.
 Use Navigation bar to change theme or to change areas.
 Play Game or use calendar and navigate using gestures. Change theme. This application will remember all your choices like your theme and last search.
 Features
----------------------------
+
 **Gesture Recognition**
 Draw these Symbols/characters. 
 - 'S' move to Settings area.
@@ -35,15 +35,13 @@ Calendar which consists year from 0000 to 9999 and simple to use UI.
 **Game**
 There is a small Ping Pong game just for fun.
 
-Developer
------------------------
+### Developer
 Kuldeep Singh, LNMIIT Jaipur, India
         
 
 Latest commit adds some new features.
 
-##Want to contribute or need to see some improvements?
+### Want to contribute or need to see some improvements?
 I would love that, please create an issue or send a PR.
 
-![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-45-19.png)
-![ScreenShot](https://raw.github.com/kiok46/Weather/master/Screenshots/Screenshot_2015-09-18-08-48-04.png)
+
